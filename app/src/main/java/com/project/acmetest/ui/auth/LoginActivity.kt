@@ -37,6 +37,8 @@ class LoginActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        supportActionBar?.title = getString(R.string.title_activity_login)
+
         initObservers()
     }
 

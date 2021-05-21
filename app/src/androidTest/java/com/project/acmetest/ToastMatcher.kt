@@ -7,6 +7,9 @@ import androidx.test.espresso.Root
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
 
+/**
+ * Custom matcher for testing toast components.
+ */
 class ToastMatcher : TypeSafeMatcher<Root?>() {
 
     override fun describeTo(description: Description?) {
