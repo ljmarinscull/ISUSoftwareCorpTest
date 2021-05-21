@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">AcmeTest</string>
+
+    <string name="required_error">This field is required</string>
+    <string name="title_activity_login">Login</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="action_sign_in_short">SignIn</string>
+    <string name="welcome">Welcome !</string>
+    <string name="login_failed">Invalid credentials</string>
+    <string name="invalid_username">Invalid username</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="dashboard_fragment_label">Dashboard</string>
+    <string name="ticket_fragment_label">New Ticket</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="new_ticket">new ticket</string>
+    <string name="go_to_work_ticket">Go to work ticket</string>
+    <string name="go_to_get_directions">Go to get directions</string>
+    <string name="calendar">Calendar</string>
+    <string name="view_ticket">View Ticket</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prompt_client_name">Client name</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="save">Save</string>
+    <string name="no_tickets">No Tickets</string>
+    <string name="go_to_dashboard">Go to dashboard</string>
+    <string name="work_ticket_fragment_label">Work Ticket</string>
+    <string name="get_directions_label">Get Directions</string>
+    <string name="most_recent_ticket">Most recent ticket</string>
+    <string name="customer_info">Customer Info</string>
+    <string name="enter_note">Enter note</string>
+    <string name="notes">Notes</string>
+    <string name="get_direction">Get Direction</string>
+    <string name="reason_for_call">Reason for call</string>
+    <string name="finishing_up">Finishing Up</string>
+    <string name="purchasing">Purchasing</string>
+    <string name="details">Details</string>
+    <string name="overview">Overview</string>
+    <string name="picture_icon">Picture icon</string>
+    <string name="acme">ACME</string>
+    <string name="address">Address:</string>
+    <string name="name_nmax">"Name:\n Max"</string>
+    <string name="phone_n_55_555555">"Phone:\n+55 555555"</string>
+    <string name="grenville_grenada">Grenville, Grenada</string>
+    <string name="scheduled_for_27_05_2021">Scheduled for: 27/05/2021</string>
+</resources>

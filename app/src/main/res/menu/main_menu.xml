@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/newTicket"
+        android:icon="@drawable/ic_new_ticket"
+        android:contentDescription="@string/new_ticket"
+        app:showAsAction="ifRoom"
+        android:title="@string/new_ticket" />
+
+    <item android:id="@+id/go_to_work_ticket"
+        android:title="@string/go_to_work_ticket"
+        android:contentDescription="@string/go_to_work_ticket"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/go_to_get_directions"
+        android:title="@string/go_to_get_directions"
+        android:contentDescription="@string/go_to_get_directions"
+        app:showAsAction="never" />
+</menu>

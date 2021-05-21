@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    /*Edittext and TextArea*/
+    <color name="input_bg_color">#FFFFFF</color>
+    <color name="input_border_color">#F3F3FB</color>
+
+    /*Button*/
+    <color name="button_primary_bg_color">#0069D9</color>
+    <color name="button_primary_text_color">#FFFFFF</color>
+
+    <color name="calendar_black">#D9000000</color>
+    <color name="calendar_white">#D9FFFFFF</color>
+    <color name="calendar_blue">#1973E8</color>
+    <color name="calendar_blue_light">#D2E3FC</color>
+    <color name="calendar_title_color">#607D8B</color>
+</resources>

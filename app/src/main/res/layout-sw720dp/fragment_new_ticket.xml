@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="ticket"
+            type="com.project.acmetest.data.model.TicketObject" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/newTicketContainer"
+        android:padding="@dimen/padding"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:inputType="textPersonName|textCapWords"
+            android:background="@drawable/input_rounded_white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:hint="@string/prompt_client_name"
+            android:text="@={ticket.clientName}"
+            android:maxLength="20"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/name"
+            android:background="@drawable/input_rounded_white"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="start|top"
+            android:hint="@string/enter_address"
+            android:text="@={ticket.address}"
+            android:inputType="textMultiLine"
+            android:maxLength="50"
+            android:padding="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textCursorDrawable="@drawable/edittext_cursor_color" />
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address"
+            android:maxDate="01/01/2050"
+            android:minDate="01/01/2021"
+            android:layout_marginTop="4dp" />
+
+        <Button
+            android:id="@+id/bSave"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:enabled="@{ticket.allFilled ? true : false}"
+            android:layout_marginTop="32dp"
+            android:text="@string/save"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</layout>

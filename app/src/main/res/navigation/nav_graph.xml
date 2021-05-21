@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboard">
+
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.project.acmetest.ui.dashboard.DashBoardFragment"
+        android:label="@string/dashboard_fragment_label"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/actionDashboardToTicket"
+            app:destination="@id/newTicket"
+            app:popUpTo="@id/dashboard" />
+        <action
+            android:id="@+id/action_dashboard_to_workTicket"
+            app:destination="@id/workTicket"
+            app:popUpTo="@id/dashboard" />
+        <action
+            android:id="@+id/action_dashboard_to_mapsFragment"
+            app:destination="@id/maps" />
+        <argument
+            android:name="ticket"
+            app:argType="com.project.acmetest.data.model.TicketObject"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newTicket"
+        android:name="com.project.acmetest.ui.ticket.NewTicketFragment"
+        android:label="@string/ticket_fragment_label"
+        tools:layout="@layout/fragment_new_ticket">
+        <action
+            android:id="@+id/action_newTicket_to_workTicket"
+            app:destination="@id/workTicket"
+            app:popUpTo="@id/newTicket"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/workTicket"
+        android:name="com.project.acmetest.ui.workticket.WorkTicketFragment"
+        android:label="@string/work_ticket_fragment_label"
+        tools:layout="@layout/fragment_work_ticket" >
+        <argument
+            android:name="ticket"
+            app:argType="com.project.acmetest.data.model.TicketObject" />
+        <action
+            android:id="@+id/action_workTicket_to_mapsFragment"
+            app:destination="@id/maps" />
+    </fragment>
+    <fragment
+        android:id="@+id/maps"
+        android:name="com.project.acmetest.ui.map.MapsFragment"
+        android:label="@string/get_directions_label" >
+        <argument
+            android:name="address"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
