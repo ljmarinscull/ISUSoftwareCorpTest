@@ -6,13 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/workTicketContainer"
-    android:padding="16dp"
     tools:context=".ui.workticket.WorkTicketFragment">
 
     <TextView
         android:id="@+id/ticketNameLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingEnd="16dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginTop="16dp"
         android:text="@string/most_recent_ticket"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
@@ -24,6 +26,8 @@
         android:id="@+id/ticketName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:paddingStart="16dp"
         tools:text="Ticket 1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:text="@string/customer_info"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -44,6 +49,7 @@
         android:id="@+id/customerNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:text="@string/name_nmax"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customerInfoLabel" />
@@ -53,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:text="@string/phone_n_55_555555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customerNameLabel" />
@@ -62,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:text="@string/address"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customerPhoneLabel" />
@@ -70,7 +78,7 @@
         android:id="@+id/customerAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Grenville, Grenada"
+        android:text="@string/grenville_grenada"
         app:layout_constraintStart_toStartOf="@+id/customerAddressLabel"
         app:layout_constraintTop_toBottomOf="@+id/customerAddressLabel" />
 
@@ -79,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scheduled for: 27/05/2021"
+        android:layout_marginEnd="@dimen/horizontal_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/customerInfoLabel" />
 
@@ -88,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/notes"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,6 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:textStyle="bold"
+        android:paddingStart="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:text="@string/reason_for_call"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -109,9 +120,10 @@
         android:id="@+id/bGetDirection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:paddingTop="0dp"
         android:paddingBottom="0dp"
-        android:text="Get Direction"
+        android:text="@string/get_direction"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="@+id/customerAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,6 +138,8 @@
         android:inputType="textMultiLine"
         android:maxLength="50"
         android:padding="8dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textCursorDrawable="@drawable/edittext_cursor_color"
         android:fontFamily="@font/poppins_light"
@@ -134,61 +148,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noteLabel" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+    <RadioGroup
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" >
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <RadioButton
+            android:id="@+id/overview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/overview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_between"
-                android:layout_weight="1"
-                android:text="@string/overview" />
-            <Button
-                android:id="@+id/finishingUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_between"
-                android:layout_weight="1"
-                android:text="@string/finishing_up" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/purchasing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_between"
-                android:layout_weight="1"
-                android:text="@string/purchasing" />
-            <Button
-                android:id="@+id/details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/details" />
-            <ImageView
-                android:id="@+id/pictureLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:contentDescription="@string/picture_icon"
-                android:src="@drawable/ic_picture"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:checked="true"
+            android:padding="10dp"
+            android:text="@string/overview" />
 
+        <RadioButton
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/details" />
+
+        <RadioButton
+            android:id="@+id/purchasing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:padding="10dp"
+            android:text="@string/purchasing" />
+
+        <RadioButton
+            android:id="@+id/finishingUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:padding="10dp"
+            android:text="@string/finishing_up" />
+
+        <ImageView
+            android:id="@+id/pictureLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/picture_icon"
+            android:src="@drawable/ic_picture"
+            android:padding="10dp" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

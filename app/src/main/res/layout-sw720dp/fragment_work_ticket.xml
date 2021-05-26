@@ -6,13 +6,15 @@
     android:id="@+id/workTicketContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding"
     tools:context=".ui.workticket.WorkTicketFragment">
 
     <TextView
         android:id="@+id/ticketNameLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/horizontal_margin"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
         android:text="@string/most_recent_ticket"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
@@ -24,6 +26,8 @@
         android:id="@+id/ticketName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         tools:text="Ticket 1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:text="@string/customer_info"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -45,6 +50,7 @@
         android:id="@+id/customerNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:text="@string/name_nmax"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:text="@string/phone_n_55_555555"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:text="@string/address"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +93,7 @@
         android:id="@+id/scheduled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/horizontal_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:text="@string/scheduled_for_27_05_2021"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,6 +104,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:text="@string/notes"
         android:textStyle="bold"
@@ -107,6 +118,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="@dimen/horizontal_margin"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:text="@string/reason_for_call"
@@ -118,6 +130,7 @@
         android:id="@+id/bGetDirection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/horizontal_margin"
         android:paddingTop="0dp"
         android:paddingBottom="0dp"
         android:text="@string/get_direction"
@@ -133,6 +146,8 @@
         android:layout_marginTop="8dp"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
         android:maxLength="50"
         android:padding="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -143,55 +158,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noteLabel" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+    <RadioGroup
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <RadioButton
             android:id="@+id/overview"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/space_between"
             android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:checked="true"
+            android:padding="10dp"
             android:text="@string/overview" />
 
-        <Button
+        <RadioButton
             android:id="@+id/details"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/space_between"
             android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:padding="10dp"
             android:text="@string/details" />
 
-        <Button
+        <RadioButton
             android:id="@+id/purchasing"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/space_between"
             android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:padding="10dp"
             android:text="@string/purchasing" />
 
-        <Button
+        <RadioButton
             android:id="@+id/finishingUp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/space_between"
             android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:padding="10dp"
             android:text="@string/finishing_up" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/pictureLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/picture_icon"
             android:src="@drawable/ic_picture"
-            android:contentDescription="@string/picture_icon" />
-    </LinearLayout>
-
+            android:padding="10dp" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

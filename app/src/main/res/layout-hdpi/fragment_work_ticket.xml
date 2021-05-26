@@ -134,61 +134,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noteLabel" />
 
-    <LinearLayout
+    <RadioGroup
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" >
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <RadioButton
+            android:id="@+id/overview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/overview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_between"
-                android:layout_weight="1"
-                android:text="@string/overview" />
-            <Button
-                android:id="@+id/finishingUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_between"
-                android:layout_weight="1"
-                android:text="@string/finishing_up" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:checked="true"
+            android:text="@string/overview" />
+
+        <RadioButton
+            android:id="@+id/details"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/purchasing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/space_between"
-                android:layout_weight="1"
-                android:text="@string/purchasing" />
-            <Button
-                android:id="@+id/details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/details" />
-            <ImageView
-                android:id="@+id/pictureLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:contentDescription="@string/picture_icon"
-                android:src="@drawable/ic_picture"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:text="@string/details" />
+
+        <RadioButton
+            android:id="@+id/purchasing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:text="@string/purchasing" />
+
+        <RadioButton
+            android:id="@+id/finishingUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:background="@drawable/toggle_button_selector"
+            android:button="@android:color/transparent"
+            android:textColor="@android:color/white"
+            android:text="@string/finishing_up" />
+
+        <ImageView
+            android:id="@+id/pictureLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/picture_icon"
+            android:src="@drawable/ic_picture"
+            android:padding="8dp" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

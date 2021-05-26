@@ -9,13 +9,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/padding">
-
+        android:layout_height="match_parent">
         <TextView
             android:id="@+id/ticketNameLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
             android:text="@string/most_recent_ticket"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
@@ -27,6 +28,8 @@
             android:id="@+id/ticketName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
             tools:text="Ticket 1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +39,8 @@
             android:id="@+id/customerInfoLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:text="@string/customer_info"
             android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -47,6 +51,7 @@
             android:id="@+id/customerNameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin"
             android:text="@string/name_nmax"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerInfoLabel" />
@@ -56,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/horizontal_margin"
             android:text="@string/phone_n_55_555555"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerNameLabel" />
@@ -65,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/horizontal_margin"
             android:text="@string/address"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerPhoneLabel" />
@@ -83,6 +90,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
+            android:layout_marginEnd="@dimen/horizontal_margin"
             android:text="@string/get_direction"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="@+id/customerAddress"
@@ -93,34 +101,39 @@
             android:id="@+id/scheduled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/horizontal_margin"
             android:text="@string/scheduled_for_27_05_2021"
             app:layout_constraintBottom_toBottomOf="@+id/customerInfoLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/customerInfoLabel" />
 
-              <TextView
-                  android:id="@+id/noteLabel"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="24dp"
-                  android:text="@string/notes"
-                  android:labelFor="@+id/note"
-                  android:textStyle="bold"
-                  app:layout_constraintEnd_toEndOf="parent"
-                  app:layout_constraintStart_toStartOf="parent"
-                  app:layout_constraintTop_toBottomOf="@+id/customerAddress" />
+        <TextView
+            android:id="@+id/noteLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:text="@string/notes"
+            android:labelFor="@+id/note"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customerAddress" />
 
         <EditText
             android:id="@+id/note"
             android:layout_width="0dp"
             android:layout_height="128dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:background="@drawable/input_rounded_white"
             android:fontFamily="@font/poppins_light"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             android:maxLength="50"
             android:padding="8dp"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             app:layout_constraintEnd_toEndOf="parent"
@@ -140,62 +153,73 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/note" />
 
+        <RadioGroup
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/reasonForCallLabel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
 
-                <LinearLayout
-                     android:id="@+id/linearLayout"
-                     android:layout_width="0dp"
-                     android:layout_height="wrap_content"
-                     android:orientation="vertical"
-                     app:layout_constraintTop_toBottomOf="@+id/reasonForCallLabel"
-                     app:layout_constraintBottom_toBottomOf="parent"
-                     app:layout_constraintEnd_toEndOf="parent"
-                     app:layout_constraintStart_toStartOf="parent">
+            <RadioButton
+                android:id="@+id/overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:background="@drawable/toggle_button_selector"
+                android:button="@android:color/transparent"
+                android:textColor="@android:color/white"
+                android:checked="true"
+                android:text="@string/overview" />
 
-                     <LinearLayout
-                         android:orientation="horizontal"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content">
-                         <Button
-                             android:id="@+id/overview"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_marginEnd="@dimen/space_between"
-                             android:layout_weight="1"
-                             android:text="@string/overview" />
-                         <Button
-                             android:id="@+id/finishingUp"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_marginEnd="@dimen/space_between"
-                             android:layout_weight="1"
-                             android:text="@string/finishing_up" />
-                     </LinearLayout>
-                     <LinearLayout
-                         android:orientation="horizontal"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content">
-                         <Button
-                             android:id="@+id/purchasing"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_marginEnd="@dimen/space_between"
-                             android:layout_weight="1"
-                             android:text="@string/purchasing" />
-                         <Button
-                             android:id="@+id/details"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_weight="1"
-                             android:text="@string/details" />
-                         <ImageView
-                             android:id="@+id/pictureLogo"
-                             android:layout_width="wrap_content"
-                             android:layout_height="match_parent"
-                             android:layout_weight="1"
-                             android:scaleType="fitXY"
-                             android:contentDescription="@string/picture_icon"
-                             android:src="@drawable/ic_picture"/>
-                     </LinearLayout>
-                 </LinearLayout>
+            <RadioButton
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:background="@drawable/toggle_button_selector"
+                android:button="@android:color/transparent"
+                android:textColor="@android:color/white"
+                android:text="@string/details" />
+
+            <RadioButton
+                android:id="@+id/purchasing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/toggle_button_selector"
+                android:button="@android:color/transparent"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:text="@string/purchasing" />
+
+            <RadioButton
+                android:id="@+id/finishingUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:background="@drawable/toggle_button_selector"
+                android:button="@android:color/transparent"
+                android:textColor="@android:color/white"
+                android:text="@string/finishing_up" />
+
+            <ImageView
+                android:id="@+id/pictureLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/picture_icon"
+                android:src="@drawable/ic_picture"
+                android:padding="8dp" />
+        </RadioGroup>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
