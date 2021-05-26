@@ -4,12 +4,14 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.AsyncQueryHandler
 import android.content.ContentValues
+import android.content.DialogInterface
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.CalendarContract
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -23,6 +25,8 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.project.acmetest.R
+import com.project.acmetest.data.mappers.TicketDataMapper
+import com.project.acmetest.data.model.EventType
 import com.project.acmetest.data.model.TicketObject
 import com.project.acmetest.databinding.FragmentDashboardBinding
 import com.project.acmetest.ui.dashboard.adapters.TicketAdapter
@@ -32,7 +36,7 @@ import com.project.acmetest.utils.hideProgress
 import com.project.acmetest.utils.showProgress
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
-
+import javax.inject.Inject
 
 // The indices for the projection array above.
 private const val PROJECTION_ID_INDEX: Int = 0
@@ -45,8 +49,10 @@ class DashBoardFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var mAdapter: TicketAdapter
+    @Inject
+    lateinit var mMapper: TicketDataMapper
     private val viewModel: TicketViewModel by activityViewModels()
-    private lateinit var tickets: List<TicketObject>
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -164,7 +170,6 @@ class DashBoardFragment : Fragment() {
         }
     }
 
-
     private fun createEvent(ticket: TicketObject, calID: Long): ContentValues {
 
         val startMillis: Long = Calendar.getInstance().run {
@@ -203,7 +208,7 @@ class DashBoardFragment : Fragment() {
         )
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        mAdapter = TicketAdapter(arrayListOf()) { ticketSelected(it) }
+        mAdapter = TicketAdapter(arrayListOf(), ::ticketSelected)
         recyclerView.adapter = mAdapter
 
         viewModel.tickets.observe(viewLifecycleOwner) {
@@ -232,11 +237,38 @@ class DashBoardFragment : Fragment() {
                 }
             }
         }
+
+        viewModel.deleteTicketStatus.observe(viewLifecycleOwner,{
+            it ?: return@observe
+            progressBar.hideProgress()
+            if(it) {
+                if(viewModel.getTicketIdToDelete() != -1){
+                    mAdapter.deleteTicket(viewModel.getTicketIdToDelete())
+                }
+                if (mAdapter.itemCount == 0){
+                    noTickets.visibility = View.VISIBLE
+                }
+            } else {
+                Toast.makeText(requireContext(),"An error occurred while deleting.", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
 
-    private fun ticketSelected(ticket: TicketObject){
-        val action = DashBoardFragmentDirections.actionDashboardToWorkTicket(ticket)
-        findNavController().navigate(action)
+    private fun ticketSelected(ticket: TicketObject, type: EventType){
+        when(type){
+            EventType.CLICK -> {
+                val action = DashBoardFragmentDirections.actionDashboardToTicket(ticket)
+                findNavController().navigate(action)
+            }
+            EventType.LONG_CLICK -> {
+                showDeleteDialog(ticket)
+            }
+            else -> {
+                val action = DashBoardFragmentDirections.actionDashboardToWorkTicket(ticket)
+                findNavController().navigate(action)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -248,7 +280,7 @@ class DashBoardFragment : Fragment() {
         // Handle item selection
         return when (item.itemId) {
             R.id.newTicket -> {
-                val action = DashBoardFragmentDirections.actionDashboardToTicket()
+                val action = DashBoardFragmentDirections.actionDashboardToTicket(null)
                 findNavController().navigate(action)
                 true
             }
@@ -268,6 +300,29 @@ class DashBoardFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun showDeleteDialog(ticket: TicketObject){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setMessage(R.string.dialog_delete_ticket_message)
+            .setPositiveButton(R.string.yes_i_do){ dialog, _ ->
+                    deleteTicket(ticket)
+                    dialog.dismiss()
+            }
+            .setNegativeButton(R.string.no) { dialog, _ ->
+                dialog.dismiss()
+            }
+        val dialog = builder.create()
+        dialog.apply {
+            show()
+            getButton(DialogInterface.BUTTON_POSITIVE).isAllCaps = false
+            getButton(DialogInterface.BUTTON_NEGATIVE).isAllCaps = false
+        }
+    }
+
+    private fun deleteTicket(ticket: TicketObject) {
+        binding.progressBar.showProgress()
+        viewModel.deleteTicket(mMapper.map(ticket))
     }
 }
 

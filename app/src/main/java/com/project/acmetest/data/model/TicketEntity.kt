@@ -26,7 +26,7 @@ data class TicketEntity(
     @ColumnInfo(name = "date")
     var date: LocalDate?
 ){
-    constructor() : this(0,"","",0,2021, LocalDate.now())
+    constructor() : this(0,"","", LocalDate.now().dayOfMonth, LocalDate.now().dayOfYear, LocalDate.now())
     constructor(clientName: String, address: String, month: Int, year: Int, date: LocalDate) : this() {
         this.clientName = clientName
         this.address = address

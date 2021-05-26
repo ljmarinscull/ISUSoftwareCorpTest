@@ -14,6 +14,8 @@ class TicketRepository @Inject constructor(
     ): ITicketRepository {
 
     override suspend fun addTicket(ticket: TicketEntity) = dataSource.addTicket(ticket)
+    override suspend fun updateTicket(ticket: TicketEntity) = dataSource.updateTicket(ticket)
+    override suspend fun deleteTicket(ticket: TicketEntity) = dataSource.deleteTicket(ticket)
     override suspend fun getAllTickets() = dataSource.getAllTickets()
     override suspend fun getTicketsByMonthAndYear(month: Int, year: Int) = dataSource.getTicketsByMonthAndYear(month,year)
 }

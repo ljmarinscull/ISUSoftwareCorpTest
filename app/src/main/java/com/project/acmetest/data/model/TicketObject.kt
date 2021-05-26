@@ -10,6 +10,7 @@ import java.util.*
 
 @Parcelize
 data class TicketObject(
+    var _id: Int = -1,
     var _clientName: String = "",
     var _address: String = "",
     var month: Int = LocalDate.now().monthValue,

@@ -5,11 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.acmetest.R
+import com.project.acmetest.data.model.EventType
 import com.project.acmetest.data.model.TicketObject
 import com.project.acmetest.databinding.TicketItemLayoutBinding
-import java.lang.Exception
 
-class TicketAdapter(private var mDataSet: MutableList<TicketObject>, private val listener: (TicketObject) -> Unit ) :
+class TicketAdapter(
+    private var mDataSet: MutableList<TicketObject>,
+    private val listener: (TicketObject, EventType) -> Unit ) :
     RecyclerView.Adapter<TicketAdapter.ViewHolder>() {
 
     // Create new views (invoked by the layout manager)
@@ -27,6 +29,13 @@ class TicketAdapter(private var mDataSet: MutableList<TicketObject>, private val
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         val ticket = mDataSet[position]
+        holder.itemView.setOnClickListener {
+            listener(ticket, EventType.CLICK)
+        }
+        holder.itemView.setOnLongClickListener {
+            listener(ticket, EventType.LONG_CLICK)
+            true
+        }
         holder.bind(ticket, listener)
     }
 
@@ -46,6 +55,16 @@ class TicketAdapter(private var mDataSet: MutableList<TicketObject>, private val
     }
     fun getTickets() = mDataSet
 
+    fun deleteTicket(id: Int) {
+        mDataSet.forEachIndexed { index, it ->
+            if (it._id == id){
+                mDataSet.removeAt(index)
+                notifyDataSetChanged()
+                return
+            }
+        }
+    }
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
@@ -54,10 +73,10 @@ class TicketAdapter(private var mDataSet: MutableList<TicketObject>, private val
 
         private val binding = TicketItemLayoutBinding.bind(view)
 
-        fun bind(ticket: TicketObject, listener: (TicketObject) -> Unit) = with(binding){
+        fun bind(ticket: TicketObject, listener: (TicketObject, EventType) -> Unit) = with(binding){
             name.text = ticket.clientName
             button.setOnClickListener {
-                listener(ticket)
+                listener(ticket, EventType.NONE)
             }
         }
     }

@@ -20,11 +20,29 @@ class TicketDataSource @Inject constructor(
     : ITicketDataSource {
 
     override suspend fun addTicket(ticket: TicketEntity): Boolean {
-        try {
+        return try {
             ticketDao.insert(ticket)
-            return true
+            true
         } catch (e: Throwable) {
-            return false
+            false
+        }
+    }
+
+    override suspend fun updateTicket(ticket: TicketEntity): Boolean {
+        return try {
+            ticketDao.update(ticket)
+            true
+        } catch (e: Throwable) {
+            false
+        }
+    }
+
+    override suspend fun deleteTicket(ticket: TicketEntity): Boolean {
+        return try {
+            ticketDao.delete(ticket)
+            true
+        } catch (e: Throwable) {
+            false
         }
     }
 

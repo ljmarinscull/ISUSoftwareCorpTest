@@ -39,6 +39,15 @@ class TicketViewModel @Inject constructor(
     private val _addTicketStatus = SingleLiveEvent<Boolean>()
     val addTicketStatus: LiveData<Boolean> = _addTicketStatus
 
+    private val _updateTicketStatus = SingleLiveEvent<Boolean>()
+    val updateTicketStatus: LiveData<Boolean> = _updateTicketStatus
+
+    private val _deleteTicketStatus = SingleLiveEvent<Boolean>()
+    val deleteTicketStatus: LiveData<Boolean> = _deleteTicketStatus
+
+    private var isTicketUpdating = false
+    private var tickeIdToDelete = -1
+
     /**
      * Get all tickets in descending order from the database.
      */
@@ -77,6 +86,46 @@ class TicketViewModel @Inject constructor(
     }
 
     /**
+     * Update a ticket in database.
+     *
+     * @param ticket Ticket to update.
+     */
+    fun updateTicket(ticket: TicketEntity) {
+        viewModelScope.launch(Dispatchers.Main) {
+            try {
+                var result: Boolean
+                withContext(Dispatchers.IO) {
+                    result = repository.updateTicket(ticket)
+                }
+                _updateTicketStatus.value = result
+            } catch (e: Exception) {
+                _updateTicketStatus.value = false
+            }
+        }
+    }
+
+    /**
+     * Delete a ticket from database.
+     *
+     * @param ticket Ticket to delete.
+     */
+    fun deleteTicket(ticket: TicketEntity) {
+        tickeIdToDelete = ticket.id
+        viewModelScope.launch(Dispatchers.Main) {
+            try {
+                var result: Boolean
+                withContext(Dispatchers.IO) {
+                    result = repository.deleteTicket(ticket)
+                }
+                _deleteTicketStatus.value = result
+            } catch (e: Exception) {
+                tickeIdToDelete = -1
+                _deleteTicketStatus.value = false
+            }
+        }
+    }
+
+    /**
      * Obtain a mutablemap of LocalDate and arraylist of tickets created in a specific month and year.
      *
      * @param month Month of ticket creation.
@@ -85,4 +134,28 @@ class TicketViewModel @Inject constructor(
      * @return a mutablemap of LocalDate and arraylist of tickets.
      */
     suspend fun getTicketsByMonthAndYear(month: Int, year: Int) = repository.getTicketsByMonthAndYear(month, year)
+
+    /**
+     * Change the estate of the fLag to know if the user is updating a ticket or not.
+     *
+     * @param state If the user is updating or not.
+     *
+     */
+    fun setUpdatingState(state: Boolean){
+        isTicketUpdating = state
+    }
+
+    /**
+     * Get the estate of the fLag to know if the user is updating a ticket or not.
+     *
+     * @return true is user is updating a ticket false otherwise.
+     */
+    fun getUpdatingState() = isTicketUpdating
+
+    /**
+     * Get the id of the last ticket for deleting.
+     *
+     * @return the id of the last ticket for deleting.
+     */
+    fun getTicketIdToDelete() = tickeIdToDelete
 }

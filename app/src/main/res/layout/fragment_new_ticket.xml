@@ -63,7 +63,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxDate="01/01/2050"
-                    android:minDate="01/01/2021"
                     android:layout_marginTop="4dp" />
 
                 <Button

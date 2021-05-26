@@ -1,15 +1,18 @@
 package com.project.acmetest.data.model
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface TicketDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(ticket: TicketEntity)
+
+    @Delete
+    suspend fun delete(ticket: TicketEntity)
+
+    @Update
+    suspend fun update(ticket: TicketEntity)
 
     @Query("SELECT * FROM tickets ORDER BY _id DESC")
     suspend fun getAll(): List<TicketEntity>

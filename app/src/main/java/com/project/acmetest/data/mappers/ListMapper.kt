@@ -16,4 +16,8 @@ class ListMapperImpl<I, O>(
     override fun mapReverse(input: List<O>): List<I> {
         return input.map { mapper.mapReverse(it) }
     }
+
+    override fun mapWithOutId(input: List<I>): List<O> {
+       return input.map { mapper.mapWithOutId(it) }
+    }
 }

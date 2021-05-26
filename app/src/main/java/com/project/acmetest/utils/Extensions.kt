@@ -80,3 +80,8 @@ fun TimeZone.getAvailableTimeZone(): String? {
         return ids[0]
     return TimeZone.getDefault().id
 }
+
+fun Calendar.todayMillis(): Long {
+    set(get(Calendar.YEAR), get(Calendar.MONTH), (get(Calendar.DAY_OF_MONTH)))
+    return timeInMillis
+}

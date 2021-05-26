@@ -18,6 +18,20 @@ interface ITicketRepository {
     suspend fun addTicket(ticket: TicketEntity): Boolean
 
     /**
+     * Update a ticket in database.
+     *
+     * @param ticket Ticket to update.
+     */
+    suspend fun updateTicket(ticket: TicketEntity): Boolean
+
+    /**
+     * Delete a ticket from database.
+     *
+     * @param ticket Ticket to delete.
+     */
+    suspend fun deleteTicket(ticket: TicketEntity): Boolean
+
+    /**
      * Get all tickets in descending order from the database.
      */
     suspend fun getAllTickets(): Result<List<TicketObject>>
