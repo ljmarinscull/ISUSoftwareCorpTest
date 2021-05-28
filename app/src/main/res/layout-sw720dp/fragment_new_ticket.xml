@@ -93,6 +93,23 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textCursorDrawable="@drawable/edittext_cursor_color" />
 
+        <EditText
+            android:id="@+id/reasonsForCall"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:background="@drawable/input_rounded_white"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="start|top"
+            android:hint="@string/enter_reasons_for_call"
+            android:text="@={ticket.reasonsForCall}"
+            android:inputType="textMultiLine"
+            android:maxLength="250"
+            android:padding="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textCursorDrawable="@drawable/edittext_cursor_color" />
+
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"

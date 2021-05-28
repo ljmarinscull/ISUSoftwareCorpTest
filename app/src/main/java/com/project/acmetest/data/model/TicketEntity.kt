@@ -26,6 +26,9 @@ data class TicketEntity(
     @ColumnInfo(name = "notes")
     var notes: String?,
 
+    @ColumnInfo(name = "reasonsForCall")
+    var reasonsForCall: String?,
+
     @ColumnInfo(name = "month")
     var month: Int?,
 
@@ -35,13 +38,14 @@ data class TicketEntity(
     @ColumnInfo(name = "date")
     var date: LocalDate?,
 ){
-    constructor() : this(0,"","", "","", "", LocalDate.now().dayOfMonth, LocalDate.now().dayOfYear, LocalDate.now())
-    constructor(ticketName: String, customerFullname: String, customerPhone: String, address: String, notes: String, month: Int, year: Int, date: LocalDate) : this() {
+    constructor() : this(0,"","", "", "", "", "", LocalDate.now().dayOfMonth, LocalDate.now().dayOfYear, LocalDate.now())
+    constructor(ticketName: String, customerFullname: String, customerPhone: String, address: String, notes: String,reasonsForCall: String, month: Int, year: Int, date: LocalDate) : this() {
         this.ticketName = ticketName
         this.customerFullname = customerFullname
         this.customerPhone = customerPhone
         this.address = address
         this.notes = notes
+        this.reasonsForCall = reasonsForCall
         this.month = month
         this.year = year
         this.date = date

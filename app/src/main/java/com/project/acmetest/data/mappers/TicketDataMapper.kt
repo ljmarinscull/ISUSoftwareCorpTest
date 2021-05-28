@@ -17,6 +17,7 @@ class TicketDataMapper @Inject constructor(): IMapper<TicketObject, TicketEntity
             customerPhone = input.customerPhone,
             address = input.address,
             notes = input.notes,
+            reasonsForCall = input.reasonsForCall,
             month = input.month,
             year = input.year,
             date= input.date
@@ -31,6 +32,7 @@ class TicketDataMapper @Inject constructor(): IMapper<TicketObject, TicketEntity
             _customerPhone = input.customerPhone!!,
             _address = input.address!!,
             _notes = input.notes!!,
+            _reasonsForCall = input.reasonsForCall!!,
             month = input.month!!,
             year = input.year!!,
             date = input.date!!
@@ -44,6 +46,7 @@ class TicketDataMapper @Inject constructor(): IMapper<TicketObject, TicketEntity
             customerPhone = input.customerPhone,
             address = input.address,
             notes = input.notes,
+            reasonsForCall = input.reasonsForCall,
             month = input.month,
             year = input.year,
             date= input.date

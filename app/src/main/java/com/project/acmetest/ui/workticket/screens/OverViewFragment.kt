@@ -58,6 +58,14 @@ class OverViewFragment : Fragment() {
         } else {
             binding.notes.text = ticket.notes
         }
+
+        if(ticket.reasonsForCall.isEmpty()){
+            binding.reasonsForCall.gravity = CENTER
+            binding.reasonsForCall.text = "No reasons for call"
+            binding.reasonsForCall.setTypeface(binding.notes.typeface, Typeface.BOLD);
+        } else {
+            binding.reasonsForCall.text = ticket.reasonsForCall
+        }
     }
 
     override fun onDestroyView() {

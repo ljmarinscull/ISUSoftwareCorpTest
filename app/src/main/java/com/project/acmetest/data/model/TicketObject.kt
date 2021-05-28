@@ -15,6 +15,7 @@ data class TicketObject(
     var _customerPhone: String = "",
     var _address: String = "",
     var _notes: String = "",
+    var _reasonsForCall: String = "",
     var month: Int = LocalDate.now().monthValue,
     var year: Int = LocalDate.now().year,
     var date: LocalDate = LocalDate.now()
@@ -46,6 +47,13 @@ data class TicketObject(
         set(value) {
             _notes = value
             notifyPropertyChanged(BR.notes)
+        }
+
+    var reasonsForCall: String
+        @Bindable get() = _reasonsForCall
+        set(value) {
+            _reasonsForCall = value
+            notifyPropertyChanged(BR.reasonsForCall)
         }
 
     var address: String

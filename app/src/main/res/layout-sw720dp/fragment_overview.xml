@@ -184,5 +184,21 @@
             app:layout_constraintTop_toBottomOf="@+id/notes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/reasonsForCall"
+            android:layout_width="0dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:padding="8dp"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textCursorDrawable="@drawable/edittext_cursor_color"
+            android:fontFamily="@font/poppins_light"
+            android:background="@drawable/input_rounded_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reasonForCallLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

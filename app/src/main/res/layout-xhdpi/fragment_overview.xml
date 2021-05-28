@@ -10,183 +10,203 @@
             type="com.project.acmetest.data.model.TicketObject" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/workTicketContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.workticket.WorkTicketFragment">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/ticketNameLabel"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingEnd="16dp"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginTop="16dp"
-            android:text="@string/most_recent_ticket"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="RtlSymmetry" />
+            android:layout_height="match_parent"
+            tools:context=".ui.workticket.WorkTicketFragment">
 
-        <TextView
-            android:id="@+id/ticketName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{ticket.ticketName}"
-            tools:text="Ticket 1"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ticketNameLabel" />
+            <TextView
+                android:id="@+id/ticketNameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="16dp"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="16dp"
+                android:text="@string/most_recent_ticket"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlSymmetry" />
 
-        <TextView
-            android:id="@+id/customerInfoLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:text="@string/customer_info"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ticketName" />
+            <TextView
+                android:id="@+id/ticketName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ticket.ticketName}"
+                tools:text="Ticket 1"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ticketNameLabel" />
 
-        <TextView
-            android:id="@+id/customerNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:text="@string/customer_name_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customerInfoLabel" />
+            <TextView
+                android:id="@+id/customerInfoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="@string/customer_info"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ticketName" />
 
-        <TextView
-            android:id="@+id/customerFullname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:text="@{ticket.customerFullname}"
-            tools:text="@string/customer_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customerNameLabel" />
+            <TextView
+                android:id="@+id/customerNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="@string/customer_name_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerInfoLabel" />
 
-        <TextView
-            android:id="@+id/customerPhoneLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginTop="@dimen/horizontal_margin"
-            android:text="@string/customer_phone_label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customerFullname" />
+            <TextView
+                android:id="@+id/customerFullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="@{ticket.customerFullname}"
+                tools:text="@string/customer_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerNameLabel" />
 
-        <TextView
-            android:id="@+id/customerPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:text="@{ticket.customerPhone}"
-            tools:text="@string/prompt_customer_phone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customerPhoneLabel" />
+            <TextView
+                android:id="@+id/customerPhoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/horizontal_margin"
+                android:text="@string/customer_phone_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerFullname" />
 
-        <TextView
-            android:id="@+id/customerAddressLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginTop="@dimen/vertical_margin"
-            android:text="@string/address"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customerPhone" />
+            <TextView
+                android:id="@+id/customerPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:text="@{ticket.customerPhone}"
+                tools:text="@string/prompt_customer_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerPhoneLabel" />
 
-        <TextView
-            android:id="@+id/customerAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{ticket.address}"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/bGetDirection"
-            tools:text="@string/customer_address"
-            app:layout_constraintStart_toStartOf="@+id/customerAddressLabel"
-            app:layout_constraintTop_toBottomOf="@+id/customerAddressLabel" />
+            <TextView
+                android:id="@+id/customerAddressLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:text="@string/address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerPhone" />
 
-        <TextView
-            android:id="@+id/scheduledForLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/scheduled_for_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ticketNameLabel" />
+            <TextView
+                android:id="@+id/customerAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ticket.address}"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/bGetDirection"
+                tools:text="@string/customer_address"
+                app:layout_constraintStart_toStartOf="@+id/customerAddressLabel"
+                app:layout_constraintTop_toBottomOf="@+id/customerAddressLabel" />
 
-        <TextView
-            android:id="@+id/scheduled"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="@{ticket.date.toString()}"
-            tools:text="01/01/2021"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scheduledForLabel" />
+            <TextView
+                android:id="@+id/scheduledForLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:text="@string/scheduled_for_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ticketNameLabel" />
 
-        <TextView
-            android:id="@+id/noteLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/notes"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customerAddress" />
+            <TextView
+                android:id="@+id/scheduled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@{ticket.date.toString()}"
+                tools:text="01/01/2021"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scheduledForLabel" />
 
-        <Button
-            android:id="@+id/bGetDirection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:text="@string/get_direction"
-            android:textAllCaps="false"
-            app:layout_constraintBottom_toBottomOf="@+id/customerAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/customerAddressLabel" />
+            <TextView
+                android:id="@+id/noteLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/notes"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerAddress" />
 
-        <TextView
-            android:id="@+id/notes"
-            android:layout_width="0dp"
-            android:layout_height="128dp"
-            android:layout_marginTop="8dp"
-            android:padding="8dp"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textCursorDrawable="@drawable/edittext_cursor_color"
-            android:fontFamily="@font/poppins_light"
-            android:background="@drawable/input_rounded_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/noteLabel" />
+            <Button
+                android:id="@+id/bGetDirection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="@string/get_direction"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="@+id/customerAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerAddressLabel" />
 
-        <TextView
-            android:id="@+id/reasonForCallLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_marginRight="@dimen/horizontal_margin"
-            android:layout_marginBottom="8dp"
-            android:text="@string/reason_for_call"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/vertical_margin"
-            app:layout_constraintTop_toBottomOf="@+id/notes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/notes"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:padding="8dp"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textCursorDrawable="@drawable/edittext_cursor_color"
+                android:fontFamily="@font/poppins_light"
+                android:background="@drawable/input_rounded_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noteLabel" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/reasonForCallLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginRight="@dimen/horizontal_margin"
+                android:layout_marginBottom="8dp"
+                android:text="@string/reason_for_call"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/vertical_margin"
+                app:layout_constraintTop_toBottomOf="@+id/notes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/reasonsForCall"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:padding="8dp"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textCursorDrawable="@drawable/edittext_cursor_color"
+                android:fontFamily="@font/poppins_light"
+                android:background="@drawable/input_rounded_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reasonForCallLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
