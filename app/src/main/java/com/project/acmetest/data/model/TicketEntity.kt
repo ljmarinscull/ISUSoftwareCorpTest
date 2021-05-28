@@ -11,11 +11,20 @@ data class TicketEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(index = true, name = "_id") var id: Int = 0,
 
-    @ColumnInfo(name = "clientName")
-    var clientName: String?,
+    @ColumnInfo(name = "ticket_name")
+    var ticketName: String?,
+
+    @ColumnInfo(name = "customer_fullname")
+    var customerFullname: String?,
+
+    @ColumnInfo(name = "customer_phone")
+    var customerPhone: String?,
 
     @ColumnInfo(name = "address")
     var address: String?,
+
+    @ColumnInfo(name = "notes")
+    var notes: String?,
 
     @ColumnInfo(name = "month")
     var month: Int?,
@@ -24,12 +33,15 @@ data class TicketEntity(
     var year: Int?,
 
     @ColumnInfo(name = "date")
-    var date: LocalDate?
+    var date: LocalDate?,
 ){
-    constructor() : this(0,"","", LocalDate.now().dayOfMonth, LocalDate.now().dayOfYear, LocalDate.now())
-    constructor(clientName: String, address: String, month: Int, year: Int, date: LocalDate) : this() {
-        this.clientName = clientName
+    constructor() : this(0,"","", "","", "", LocalDate.now().dayOfMonth, LocalDate.now().dayOfYear, LocalDate.now())
+    constructor(ticketName: String, customerFullname: String, customerPhone: String, address: String, notes: String, month: Int, year: Int, date: LocalDate) : this() {
+        this.ticketName = ticketName
+        this.customerFullname = customerFullname
+        this.customerPhone = customerPhone
         this.address = address
+        this.notes = notes
         this.month = month
         this.year = year
         this.date = date

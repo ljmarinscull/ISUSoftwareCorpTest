@@ -186,7 +186,7 @@ class DashBoardFragment : Fragment() {
         return ContentValues().apply {
             put(CalendarContract.Events.DTSTART, startMillis)
             put(CalendarContract.Events.DTEND, endMillis)
-            put(CalendarContract.Events.TITLE, ticket.clientName)
+            put(CalendarContract.Events.TITLE, ticket.ticketName)
             put(CalendarContract.Events.EVENT_LOCATION, ticket.address)
             put(CalendarContract.Events.CALENDAR_ID, calID)
             put(CalendarContract.Events.EVENT_TIMEZONE, timeZone)

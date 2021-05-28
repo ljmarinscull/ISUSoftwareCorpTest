@@ -32,20 +32,53 @@
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vertical_margin"
                     android:ems="10"
+                    android:maxLines="1"
                     android:inputType="textPersonName|textCapWords"
                     android:background="@drawable/input_rounded_white"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:hint="@string/prompt_client_name"
-                    android:text="@={ticket.clientName}"
+                    android:hint="@string/prompt_ticket_name"
+                    android:text="@={ticket.ticketName}"
                     android:maxLength="20"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/customerFullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/vertical_margin"
+                    android:inputType="textPersonName|textCapWords"
+                    android:background="@drawable/input_rounded_white"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:hint="@string/prompt_customer_fullname"
+                    android:text="@={ticket.customerFullname}"
+                    android:maxLength="30"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/customerPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:digits="0123456789"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/vertical_margin"
+                    android:inputType="phone|number"
+                    android:background="@drawable/input_rounded_white"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:hint="@string/prompt_customer_phone"
+                    android:text="@={ticket.customerPhone}"
+                    android:maxLength="10"
                     android:padding="8dp" />
 
                 <EditText
                     android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="128dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/vertical_margin"
                     android:background="@drawable/input_rounded_white"
                     android:ems="10"
                     android:fontFamily="@font/poppins_light"
@@ -54,6 +87,23 @@
                     android:text="@={ticket.address}"
                     android:inputType="textMultiLine"
                     android:maxLength="50"
+                    android:padding="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textCursorDrawable="@drawable/edittext_cursor_color" />
+
+                <EditText
+                    android:id="@+id/notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="128dp"
+                    android:layout_marginTop="@dimen/vertical_margin"
+                    android:background="@drawable/input_rounded_white"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_light"
+                    android:gravity="start|top"
+                    android:hint="@string/enter_notes"
+                    android:text="@={ticket.notes}"
+                    android:inputType="textMultiLine"
+                    android:maxLength="250"
                     android:padding="8dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textCursorDrawable="@drawable/edittext_cursor_color" />
@@ -77,6 +127,5 @@
                     app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
         </ScrollView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

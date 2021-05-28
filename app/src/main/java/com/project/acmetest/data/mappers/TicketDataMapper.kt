@@ -12,8 +12,11 @@ class TicketDataMapper @Inject constructor(): IMapper<TicketObject, TicketEntity
     override fun map(input: TicketObject): TicketEntity {
         return TicketEntity(
             id = input._id,
-            clientName = input.clientName,
+            ticketName = input.ticketName,
+            customerFullname = input.customerFullname,
+            customerPhone = input.customerPhone,
             address = input.address,
+            notes = input.notes,
             month = input.month,
             year = input.year,
             date= input.date
@@ -23,8 +26,11 @@ class TicketDataMapper @Inject constructor(): IMapper<TicketObject, TicketEntity
     override fun mapReverse(input: TicketEntity): TicketObject {
         return TicketObject(
             _id = input.id,
-            _clientName = input.clientName!!,
+            _ticketName = input.ticketName!!,
+            _customerFullname = input.customerFullname!!,
+            _customerPhone = input.customerPhone!!,
             _address = input.address!!,
+            _notes = input.notes!!,
             month = input.month!!,
             year = input.year!!,
             date = input.date!!
@@ -33,8 +39,11 @@ class TicketDataMapper @Inject constructor(): IMapper<TicketObject, TicketEntity
 
     override fun mapWithOutId(input: TicketObject): TicketEntity {
         return TicketEntity(
-            clientName = input.clientName,
+            ticketName = input.ticketName,
+            customerFullname = input.customerFullname,
+            customerPhone = input.customerPhone,
             address = input.address,
+            notes = input.notes,
             month = input.month,
             year = input.year,
             date= input.date

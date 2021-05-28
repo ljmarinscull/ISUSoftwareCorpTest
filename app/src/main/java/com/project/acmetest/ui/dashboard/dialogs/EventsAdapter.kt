@@ -27,7 +27,7 @@ class EventsAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(event: TicketObject) {
-            binding.itemEventText.text = event.clientName
+            binding.itemEventText.text = event.ticketName
         }
     }
 }

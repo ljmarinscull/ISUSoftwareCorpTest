@@ -74,7 +74,7 @@ class TicketAdapter(
         private val binding = TicketItemLayoutBinding.bind(view)
 
         fun bind(ticket: TicketObject, listener: (TicketObject, EventType) -> Unit) = with(binding){
-            name.text = ticket.clientName
+            name.text = ticket.ticketName
             button.setOnClickListener {
                 listener(ticket, EventType.NONE)
             }

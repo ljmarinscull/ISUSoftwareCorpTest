@@ -41,13 +41,13 @@ class WorkTicketFragment : Fragment() {
 
         // Inflate the layout for this fragment
         _binding = FragmentWorkTicketBinding.inflate(inflater, container, false)
+        _binding?.ticket = ticket
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.ticketName.text = ticket.clientName
         binding.bGetDirection.setOnClickListener {
             val address = binding.customerAddress.text.toString()
             val action = WorkTicketFragmentDirections.actionWorkTicketToMapsFragment(address)
@@ -76,5 +76,10 @@ class WorkTicketFragment : Fragment() {
             }
             else -> false
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
