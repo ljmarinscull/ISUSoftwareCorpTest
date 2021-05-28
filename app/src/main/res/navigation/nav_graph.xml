@@ -46,7 +46,7 @@
         android:id="@+id/workTicket"
         android:name="com.project.acmetest.ui.workticket.WorkTicketFragment"
         android:label="@string/work_ticket_fragment_label"
-        tools:layout="@layout/fragment_work_ticket" >
+        tools:layout="@layout/fragment_overview" >
         <argument
             android:name="ticket"
             app:argType="com.project.acmetest.data.model.TicketObject" />

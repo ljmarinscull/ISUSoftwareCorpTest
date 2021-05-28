@@ -11,9 +11,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/workTicketContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/workTicketContainer"
         tools:context=".ui.workticket.WorkTicketFragment">
 
         <TextView
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
-            android:text="@string/name_nmax"
+            android:text="@string/customer_name_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerInfoLabel" />
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:text="@{ticket.customerFullname}"
-            tools:text="name_nmax"
+            tools:text="@string/customer_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerNameLabel" />
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginTop="@dimen/horizontal_margin"
-            android:text="@string/customer_phone"
+            android:text="@string/customer_phone_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerFullname" />
 
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:text="@{ticket.customerPhone}"
-            tools:text="string/phone_n_55_555555"
+            tools:text="@string/prompt_customer_phone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerPhoneLabel" />
 
@@ -104,10 +104,12 @@
 
         <TextView
             android:id="@+id/customerAddress"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/bGetDirection"
             android:text="@{ticket.address}"
-            tools:text="string/grenville_grenada"
+            tools:text="@string/customer_address"
             app:layout_constraintStart_toStartOf="@+id/customerAddressLabel"
             app:layout_constraintTop_toBottomOf="@+id/customerAddressLabel" />
 
@@ -116,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/scheduled_for"
+            android:text="@string/scheduled_for_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ticketNameLabel" />
 
@@ -126,7 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@{ticket.date.toString()}"
-            tools:text="01/01/2021"
+            tools:text="@string/scheduled_for"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scheduledForLabel" />
 
@@ -141,20 +143,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customerAddress" />
-
-        <TextView
-            android:id="@+id/reasonForCallLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_marginRight="@dimen/horizontal_margin"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="@string/reason_for_call"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/bGetDirection"
@@ -186,72 +174,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/noteLabel" />
 
-        <RadioGroup
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/reasonForCallLabel"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="@dimen/horizontal_margin"
+            android:layout_marginRight="@dimen/horizontal_margin"
+            android:layout_marginBottom="8dp"
+            android:text="@string/reason_for_call"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/vertical_margin"
+            app:layout_constraintTop_toBottomOf="@+id/notes"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <RadioButton
-                android:id="@+id/overview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/toggle_button_selector"
-                android:button="@android:color/transparent"
-                android:textColor="@android:color/white"
-                android:checked="true"
-                android:padding="10dp"
-                android:text="@string/overview" />
-
-            <RadioButton
-                android:id="@+id/details"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/toggle_button_selector"
-                android:button="@android:color/transparent"
-                android:textColor="@android:color/white"
-                android:padding="10dp"
-                android:text="@string/details" />
-
-            <RadioButton
-                android:id="@+id/purchasing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/toggle_button_selector"
-                android:button="@android:color/transparent"
-                android:textColor="@android:color/white"
-                android:padding="10dp"
-                android:text="@string/purchasing" />
-
-            <RadioButton
-                android:id="@+id/finishingUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/toggle_button_selector"
-                android:button="@android:color/transparent"
-                android:textColor="@android:color/white"
-                android:padding="10dp"
-                android:text="@string/finishing_up" />
-
-            <ImageView
-                android:id="@+id/pictureLogo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/picture_icon"
-                android:src="@drawable/ic_picture"
-                android:padding="10dp" />
-        </RadioGroup>
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
