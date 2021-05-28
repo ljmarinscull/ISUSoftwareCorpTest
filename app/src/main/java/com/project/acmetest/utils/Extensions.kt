@@ -9,8 +9,7 @@ import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
-import androidx.viewpager.widget.ViewPager
-import com.project.acmetest.R
+import androidx.viewpager2.widget.ViewPager2
 import java.time.DayOfWeek
 import java.time.temporal.WeekFields
 import java.util.*
@@ -37,9 +36,9 @@ fun SearchView.onQueryTextSubmit(onQueryTextSubmit: (String?)->Unit ) {
     })
 }
 
-fun ViewPager.onPageSelected(onPageSelected: (position:Int)->Unit) {
+fun ViewPager2.onPageSelected(onPageSelected: (position:Int)->Unit) {
 
-    this.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+    this.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrolled(
             position: Int,
             positionOffset: Float,

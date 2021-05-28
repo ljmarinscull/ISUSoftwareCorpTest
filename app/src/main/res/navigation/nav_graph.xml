@@ -18,9 +18,6 @@
             android:id="@+id/action_dashboard_to_workTicket"
             app:destination="@id/workTicket"
             app:popUpTo="@id/dashboard" />
-        <action
-            android:id="@+id/action_dashboard_to_mapsFragment"
-            app:destination="@id/maps" />
         <argument
             android:name="ticket"
             app:argType="com.project.acmetest.data.model.TicketObject"
@@ -50,17 +47,5 @@
         <argument
             android:name="ticket"
             app:argType="com.project.acmetest.data.model.TicketObject" />
-        <action
-            android:id="@+id/action_workTicket_to_mapsFragment"
-            app:destination="@id/maps" />
-    </fragment>
-    <fragment
-        android:id="@+id/maps"
-        android:name="com.project.acmetest.ui.map.MapsFragment"
-        android:label="@string/get_directions_label" >
-        <argument
-            android:name="address"
-            app:argType="string"
-            app:nullable="true" />
     </fragment>
 </navigation>

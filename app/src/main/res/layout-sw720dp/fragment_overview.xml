@@ -162,7 +162,6 @@
             android:padding="8dp"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@{ticket.notes}"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textCursorDrawable="@drawable/edittext_cursor_color"
             android:fontFamily="@font/poppins_light"

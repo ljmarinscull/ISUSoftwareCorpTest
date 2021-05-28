@@ -1,15 +1,18 @@
 package com.project.acmetest.ui.workticket.screens
 
+import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
+import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.project.acmetest.data.model.TicketObject
 import com.project.acmetest.databinding.FragmentOverviewBinding
+import com.project.acmetest.ui.map.ARG_ADDRESS
+import com.project.acmetest.ui.map.MapsActivity
 import com.project.acmetest.ui.workticket.ARG_TICKET
-import com.project.acmetest.ui.workticket.WorkTicketFragmentDirections
 
 
 /**
@@ -45,10 +48,16 @@ class OverViewFragment : Fragment() {
 
         binding.bGetDirection.setOnClickListener {
             val address = binding.customerAddress.text.toString()
-            val action = WorkTicketFragmentDirections.actionWorkTicketToMapsFragment(address)
-            findNavController().navigate(action)
+            startActivity(Intent(requireActivity(), MapsActivity::class.java).putExtra(ARG_ADDRESS, address))
         }
 
+        if(ticket.notes.isEmpty()){
+            binding.notes.gravity = CENTER
+            binding.notes.text = "No Notes"
+            binding.notes.setTypeface(binding.notes.typeface, Typeface.BOLD);
+        } else {
+            binding.notes.text = ticket.notes
+        }
     }
 
     override fun onDestroyView() {

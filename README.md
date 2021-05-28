@@ -13,5 +13,9 @@ ISUSoftwareCorp android application test
 
 **password:** admin123
 
+### Recents functionalities ###
+ - Press long ticket item for deleting.
+ - Tap on ticket item for updating.
+
 
 

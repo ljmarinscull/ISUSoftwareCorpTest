@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.AsyncQueryHandler
 import android.content.ContentValues
 import android.content.DialogInterface
+import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
@@ -31,6 +32,7 @@ import com.project.acmetest.data.model.TicketObject
 import com.project.acmetest.databinding.FragmentDashboardBinding
 import com.project.acmetest.ui.dashboard.adapters.TicketAdapter
 import com.project.acmetest.ui.dashboard.dialogs.CalendarDialogFragment
+import com.project.acmetest.ui.map.MapsActivity
 import com.project.acmetest.utils.Result
 import com.project.acmetest.utils.hideProgress
 import com.project.acmetest.utils.showProgress
@@ -294,8 +296,7 @@ class DashBoardFragment : Fragment() {
                 }
                 true
             } R.id.go_to_get_directions -> {
-                val action = DashBoardFragmentDirections.actionDashboardToMapsFragment(" ")
-                findNavController().navigate(action)
+                startActivity(Intent(requireActivity(), MapsActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
